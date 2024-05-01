@@ -18,7 +18,7 @@ const app = express();
 
 // ====================================================== MIDDLEWARE =====================================================
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../client/dist")));
+// app.use(express.static(path.join(__dirname, "../client/dist")));
 
 // app.use(cors());
 // const whitelist = [
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 // app.use(cors());
 const corsOptions = {
   credentials: true,
-  origin: "http://localhost:5173",
+  origin: "https://tangerine-brioche-59075a.netlify.app",
 };
 app.use(cors(corsOptions));
 
@@ -65,9 +65,9 @@ app.use("/api/story", storyRoutes);
 //   res.status(200).json("Server is up and running");
 // });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
+// });
 
 // Start server
 const PORT = process.env.PORT;
